@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <title>Spice Inn's CookBook</title>
+</head>
+<body>
+
+    <header>
+
+        <!------- Nav bar-------->
+
+        <nav>
+            <div class="nav-wrapper">
+                <a href="" class="brand_logo">Spice Inn's CookBook</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons burger">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('get_index') }}">Home</a></li>
+                    <li><a href="#">Recipes</a></li>
+                    <!--{% if session.user %} -->
+                    <li><a href="">Profile</a></li>
+                    <li><a href="">Add Recipe</a></li>
+                    <li><a href="">Logout</a></li>
+                    <!-- {% else %} -->
+                    <li><a href="">Login/Register</a></li>
+                    <!-- {% endif %} -->
+                </ul>
+            </div>
+        </nav>
+
+        <!------- Mobile side nav -------->
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Recipes</a></li>
+            <!-- {% if session.user %} -->
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Add Recipe</a></li>
+            <li><a href="#">Logout</a></li>
+            <!-- {% else %} -->
+            <li><a href="#">Login/Register</a></li>
+            <!-- {% endif %} -->
+        </ul>
+
+
+    </header>
+
+
+    {% block content }
+    {% endblock %}
+
+    <footer class="page-footer">
+        <p class="m-0 center-align white-text">Copyright &copy; Spice Inn's CookBook - 2021</p>
+    </footer>
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>
