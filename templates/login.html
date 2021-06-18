@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3 class="center-align">Login / Register</h3>
+
+<div class="row">
+
+    <!-- Login Form -->
+
+    <form class="col s6 m4 offset-m2" method="POST" action="{{ url_for('login') }}">
+
+        <h4>Already registered?</h4>
+
+        <div class="card-panel">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix"></i>
+                    <input id="username" name="username" type="text" minlength="5" maxlength="15"
+                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                    <label for="username">Username</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix"></i>
+                    <input id="password" name="password" type="password" minlength="5" maxlength="15"
+                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <div class="row center-align">
+                <button class="btn" type="submit" name="action">Login
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <div class="col s6 m4 offset-m2">
+
+        <h4> Not registerd yet? </h4>
+        <a href="{{ url_for('register') }}">Register Here</a>
+
+    </div>
+
+
+
+</div>
+
+
+
+{% endblock %}
