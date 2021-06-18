@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    {% block styles %}
+    {% endblock %}
     <title>Spice Inn's CookBook</title>
 </head>
 <body>
@@ -15,11 +17,11 @@
 
         <nav>
             <div class="nav-wrapper">
-                <a href="" class="brand_logo">Spice Inn's CookBook</a>
+                <a href="{{ url_for('get_recipes') }}" class="brand_logo">Spice Inn's CookBook</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons burger">menu</i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_index') }}">Home</a></li>
-                    <li><a href="#">Recipes</a></li>
+                    <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                    <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
                     <!--{% if session.user %} -->
                     <li><a href="">Profile</a></li>
                     <li><a href="">Add Recipe</a></li>
@@ -34,8 +36,8 @@
         <!------- Mobile side nav -------->
 
         <ul class="sidenav" id="mobile-demo">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Recipes</a></li>
+            <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+            <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
             <!-- {% if session.user %} -->
             <li><a href="#">Profile</a></li>
             <li><a href="#">Add Recipe</a></li>
@@ -49,7 +51,7 @@
     </header>
 
 
-    {% block content }
+    {% block content %}
     {% endblock %}
 
     <footer class="page-footer">
