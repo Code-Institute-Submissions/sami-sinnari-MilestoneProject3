@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h3 class="center-align"> Add Recipe </h3>
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" action="">
+            <div class="row">
+                <!-- Recipe Name -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <input id="recipe_name" name="recipe_name" type="text" pattern="^[^\s][A-Za-z0-9\s]{1,20}$"
+                            class="validate" required>
+                        <label for="recipe_name">Recipe name</label>
+                        <span class="helper-text" >We like it short and simple!</span>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
