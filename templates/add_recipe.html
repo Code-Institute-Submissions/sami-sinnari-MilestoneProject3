@@ -15,6 +15,28 @@
                         <span class="helper-text" >We like it short and simple!</span>
                     </div>
                 </div>
+                <!-- Category name -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <select id="category_name" name="category_name" class="validate" required>
+                            <option value="" disabled selected>Choose category</option>
+                            {% for category in categories %}
+                            <option value="{{ category.category_name}}">{{ category.category_name}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="category_name">Recipe category</label>
+                    </div>
+                </div>
+                <!-- Img URL -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <input id="img_url" name="img_url" type="url" pattern="https?://.+" class="validate" 
+                        value="" required>
+                        <label for="img_url">Image url</label>
+                        <span class="helper-text" data-error="enter valid URL" data-success="right">If you have no image url, keep the default value.</span>
+                    </div>
+                </div>
+
         </form>
     </div>
 </div>
