@@ -85,6 +85,22 @@ def logout():
     session.clear()
     return redirect(url_for("login"))
 
+
+#### PROFILE ####
+
+@ app.route("/profile/<username>", methods=["GET", "POST"])
+def profile(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    user = session.get("user").lower()
+    user_recipes = list(
+        mongo.db.recipes.find({"added_by": session["user"]}))
+    if user is not None:
+        return render_template(
+            "profile.html", username=username, recipes=user_recipes)
+    else:
+        return render_template("/user/login.html")
+
 ####  MAIN  #####
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
