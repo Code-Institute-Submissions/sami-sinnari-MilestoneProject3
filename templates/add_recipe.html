@@ -31,12 +31,31 @@
                 <div class="row">
                     <div class="input-field col s11">
                         <input id="img_url" name="img_url" type="url" pattern="https?://.+" class="validate" 
-                        value="" required>
+                        value="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/20190503-delish-pineapple-baked-salmon-horizontal-ehg-450-1557771120.jpg?crop=0.669xw:1.00xh;0.173xw,0&resize=640:*" required>
                         <label for="img_url">Image url</label>
                         <span class="helper-text" data-error="enter valid URL" data-success="right">If you have no image url, keep the default value.</span>
                     </div>
                 </div>
-
+                <!-- Preparation time  -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <input id="prep_time" name="prep_time" type="text" pattern="^[1-9][0-9]*$" class="validate"
+                            required>
+                        <label for="prep_time">Preparation time (in minutes)</label>
+                        <span class="helper-text" data-error="enter a valid number" data-success="right">Example: 20</span>
+                    </div>
+                </div>
+                <!-- Recipe Ingredients  -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea validate"
+                            required></textarea>
+                        <label for="recipe_ingredients">Ingredients</label>
+                        <span class="helper-text" data-error="not correct" data-success="right">Write every new ingredient on a
+                            new
+                            line.</span>
+                    </div>
+                </div>
         </form>
     </div>
 </div>
