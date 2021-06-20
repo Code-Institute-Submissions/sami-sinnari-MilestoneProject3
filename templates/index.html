@@ -1,6 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>TEST</h2>
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center brown-text text-darken-1">Share some secret recipes!</h1>
+        <div class="row center">
+          <h5 class="header col s12 white-text lighten-1">a test line a test line a test line a test line a test line a test line </h5>
+        </div>
+        <div class="row center">
+          <a href="{{ url_for('get_recipes') }}" id="download-button" class="btn-large waves-effect waves-light brown lighten-1">Find some recipes!</a>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="/static/images/1.jpg" alt="Unsplashed background img 1"></div>
+  </div>
 
 {% endblock %} 
