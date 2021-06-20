@@ -1,20 +1,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h3 class="center-align">Login / Register</h3>
+<h3 class="center-align">Login / Sign Up</h3>
 
 <div class="row">
 
     <!-- Login Form -->
 
-    <form class="col s6 m4 offset-m2" method="POST" action="{{ url_for('login') }}">
-
-        <h4>Already registered?</h4>
-
+    <form class="col m4 s12 offset-m2" method="POST" action="{{ url_for('login') }}">
+        <h2> Log In </h2>
         <div class="card-panel">
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix"></i>
+                    <i class="material-icons prefix brown-text"> people</i>
                     <input id="username" name="username" type="text" minlength="5" maxlength="15"
                         pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                     <label for="username">Username</label>
@@ -22,24 +20,24 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix"></i>
+                    <i class="material-icons prefix brown-text">lock_outline</i>
                     <input id="password" name="password" type="password" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                        pattern="^[a-zA-Z0-9]{5,20}$" class="validate" required>
                     <label for="password">Password</label>
                 </div>
             </div>
             <div class="row center-align">
-                <button class="btn" type="submit" name="action">Login
+                <button class="btn brown lighten-1" type="submit" name="action">Login
                 </button>
             </div>
         </div>
     </form>
 
-    <div class="col s6 m4 offset-m2">
-
-        <h4> Not registerd yet? </h4>
-        <a href="{{ url_for('register') }}">Register Here</a>
-
+    <div class="row">
+        <div class="col m4 s12 offset-m2">
+            <h4> Not registerd yet? </h4>
+            <a href="{{ url_for('register') }}" class="btn brown lighten-1 ">Click Here</a>
+        </div>
     </div>
 
 

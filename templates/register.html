@@ -9,7 +9,7 @@
 
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix"> person</i>
+                    <i class="material-icons prefix brown-text"> people</i>
                     <input id="username" name="username" type="text" minlength="5" maxlength="15"
                         pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                     <label for="username">Username</label>
@@ -17,18 +17,27 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix"> lock</i>
+                    <i class="material-icons prefix brown-text"> lock_outline</i>
                     <input id="password" name="password" type="password" minlength="5" maxlength="15"
                         pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                     <label for="password">Password</label>
                 </div>
             </div>
             <div class="row center-align">
-                <button class="btn waves-effect deep-orange" type="submit" name="action">Register
+                <button class="btn waves-effect brown lighten-1" type="submit" name="action">Register
                 </button>
             </div>
         </div>
     </form>
+
+    <div class="row">
+        <div class="col s12">
+            <p class="center-align">
+                Already Registered?
+                <a href="{{ url_for('login') }}" class="">Log In</a>
+            </p>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
