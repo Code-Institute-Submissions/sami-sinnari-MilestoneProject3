@@ -1,15 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2> test for the child template</h2>
+<div class="container center-align">
 
-    {% for recipe in recipes %}
-        {{ recipe.category_name }} <br>
-        {{ recipe.recipe_name }} <br>
-        {{ recipe.recipe_ingredients }} <br>
-        {{ recipe.recipe_serves }} <br>
-        {{ recipe.recipe_method }} <br>
-        {{ recipe.recipe_inventor }} <br>
-    {% endfor %}
+    <div class="row">
+        <h2 class="align-center"> All Recipes</h2>
+        <br>
+    </div>
+
+    <div class="row">
+        {% for recipe in recipes %}
+        <div class="col s12 m4">
+            <a href="{{ url_for('recipe', recipe_id=recipe._id) }}">
+                <div class="card large">
+                    <div class="card-image">
+                        <img class="img_recipe" src="{{ recipe.img_url }}" alt="recipe">
+                    </div>
+                    <div class="card-content">
+                        <h5>{{ recipe.recipe_name }}</h5>
+                          <p>Preparation Time: {{ recipe.prep_time}}</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock %} 
