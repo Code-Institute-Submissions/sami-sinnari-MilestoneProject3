@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container recipe-container">
+    <div class="row">
+        <div class="col s12">
+            <h2 class="center-align">{{ recipe.recipe_name }}</h2> <br>
+        </div>
+        <div class="row">
+            <div class="col s12 m4 ">
+                <h6> Time of a day: {{ recipe.category_name}}</h6> <br>
+                <h6> Preparation Time: {{ recipe.prep_time}}</h6> <br>
+                <h6> Added by: {{ recipe.added_by}}</h6>
+            </div>
+            <div class="col s12 m8">
+                <img class="recipe_img responsive-img" src="{{ recipe.img_url}}" alt="photo of recipe">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <h3 class="center-align">Ingredients</h3>
+            <p class="center-align"> {{ recipe.recipe_ingredients }}</p>
+        </div>
+        <div class="col s12">
+            <h3 class="center-align"> Instructions </h3>
+            <p class="center-align">{{ recipe.recipe_method }}</p>
+        </div>
+    </div>
+<!-- TEST SUBMIT REVIEW FORM-->
+    <div class="card center-align">
+        <div class="row">
+            <h3>Write your review</h3>
+        </div>
+
+        <div class="row">
+            <form id="reviewForm" onsubmit="return sendMail(this);" class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                <input id="name" type="text" name="name" class="validate">
+                <label for="name">Your Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                <input id="email" type="email" name="email" class="validate">
+                <label for="email">Email</label>
+                </div>
+            </div>
+            <div class="row">
+                    <form class="col s12">
+                        <div class="input-field col s12">
+                        <textarea id="message" name="message" class="materialize-textarea"></textarea>
+                        <label for="message">Your review message!</label>
+                        <button id="submit-btn" type="submit" class="btn submit-btn">Send</button>
+                        </div>
+                    </form>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}
