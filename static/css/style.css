@@ -1,0 +1,67 @@
+
+nav ul a,
+nav .brand-logo {
+  color: #444;
+}
+
+
+p {
+  line-height: 2rem;
+}
+
+.sidenav-trigger {
+  color: #26a69a;
+}
+
+.parallax{
+    background-image: url("/static/images/1.jpg");
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+.modal .modal-footer{
+  display: flex;
+  justify-content: center;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+.parallax-container .section {
+    width: 100%;
+}
+
+
+ /* label focus color */
+ .input-field input:focus + label {
+  color: rgb(150, 102, 40) !important;
+}
+/* label underline focus color */
+.input-field input:focus {
+  border-bottom: 1px solid rgb(150, 102, 40) !important;
+  box-shadow: 0 1px 0 0 rgb(150, 102, 40) !important;
+}
+
+
+@media only screen and (min-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (min-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
