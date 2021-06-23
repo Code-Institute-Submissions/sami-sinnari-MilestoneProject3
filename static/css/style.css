@@ -37,6 +37,19 @@ p {
     width: 100%;
 }
 
+.img_recipe{
+  float: left;
+  width:  150px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.responsive-image{
+    float: left;
+    width:  150px;
+    height: 300px;
+    object-fit: cover;
+}
 
  /* label focus color */
  .input-field input:focus + label {
@@ -65,3 +78,25 @@ p {
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .recipe_details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .recipe-image {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+
+  .recipe-info-text {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
