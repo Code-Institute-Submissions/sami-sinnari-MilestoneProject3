@@ -16,7 +16,7 @@
                     <div class="container">
                         <div class="card">
                             <div class="card-image">
-                                <img class="responsive-img" src="{{ recipe.img_url }}" alt="recipe image">
+                                <img class="responsive-image" src="{{ recipe.img_url }}" alt="recipe image">
                             </div>
                             <div class="card-content">
                                 <h4>{{ recipe.recipe_name }}</h4>
@@ -24,7 +24,7 @@
                             </div>
                             <div class="card-action"> 
                                         <a class="btn waves-effect btn modal-trigger brown lighten-1" href="#modal1">
-                                            <i class="material-icons">remove</i></a>   
+                                            <i class="material-icons">delete</i></a>   
                                         <div id="modal1" class="modal">
                                             <div class="modal-content">
                                             <h4>Delete for all eternity?</h4> <br>
@@ -33,7 +33,7 @@
                                             </div>
                                             <div class="modal-footer center-align">
                                                 <a href="#" class="modal-close waves-effect btn-flat brown accent-1 ">Cancel</a>
-                                                <a href="" class="modal-close waves-effect btn-flat brown accent-1">YES</a>
+                                                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="modal-close waves-effect btn-flat brown accent-1">YES</a>
                                             </div>
                                         </div>
                                         <a href="" class="btn waves-effect brown lighten-1"><i class="material-icons">edit</i></a>

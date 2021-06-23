@@ -19,7 +19,7 @@ mongo = PyMongo(app)
 
 
 
-#### Index and route  #####
+# Index and Route
 
 
 @app.route("/")
@@ -41,7 +41,7 @@ def recipe(recipe_id):
     mongo.db.recipes.update({'_id': ObjectId(recipe_id)}, {'$inc': {'views': int(1)}})
     return render_template("/recipe.html", recipe=recipe_db)
 
-#### Sign Up #### 
+# Sign Up
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -59,12 +59,14 @@ def register():
         }
         mongo.db.users.insert_one(register)
 
+        # Place user into a session cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Registration Successful! You can now share your own recipes!")
+        return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
 
-#### Login #### 
+# Login
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -87,7 +89,7 @@ def login():
 
     return render_template("/login.html")
 
-#### Logout #### 
+# Logout 
 
 @ app.route("/logout")
 def logout():
@@ -96,7 +98,7 @@ def logout():
     return redirect(url_for("login"))
 
 
-#### User's Profile ####
+# User's Profile
 
 @ app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
@@ -112,7 +114,7 @@ def profile(username):
         return render_template("/login.html")
 
 
-#### Add the recipe ####
+# Add Recipe
 
 @ app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
@@ -141,7 +143,15 @@ def add_recipe():
         "add_recipe.html", categories=categories
         )
 
-#### Comments ####
+# Delete recipe
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("Recipe has been Successfully Deleted")
+    return redirect(url_for("profile", username=session['user']))
+
+# Comments
 
 @app.route('/comments', methods=['POST'])
 def comments():
@@ -158,7 +168,7 @@ def comments():
     return render_template( "comment.html")
     
     #return redirect(url_for('comments', comments_id=request.form.get('comments_id')))
-####  Main  #####
+# Main
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
