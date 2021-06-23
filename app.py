@@ -17,6 +17,8 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
+
 #### Index and route  #####
 
 
@@ -36,8 +38,7 @@ def get_recipes():
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
-    mongo.db.recipes.update(
-        {'_id': ObjectId(recipe_id)}, {'$inc': {'views': int(1)}})
+    mongo.db.recipes.update({'_id': ObjectId(recipe_id)}, {'$inc': {'views': int(1)}})
     return render_template("/recipe.html", recipe=recipe_db)
 
 #### Sign Up #### 
@@ -140,6 +141,23 @@ def add_recipe():
         "add_recipe.html", categories=categories
         )
 
+#### Comments ####
+
+@app.route('/comments', methods=['POST'])
+def comments():
+    if request.method == 'POST':
+        comment = {
+            'person_name': request.form.get('person_name'),
+            'user_comment': request.form.get('user_comment')
+        }
+
+        mongo.db.comments.insert_one(comment)
+        flash('Comment posted successfully')
+        return redirect(url_for(""))
+
+    return render_template( "comment.html")
+    
+    #return redirect(url_for('comments', comments_id=request.form.get('comments_id')))
 ####  Main  #####
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
