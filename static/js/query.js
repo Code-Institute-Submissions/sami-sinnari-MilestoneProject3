@@ -4,6 +4,4 @@ $(document).ready(function(){
     $('select').formSelect();
     $('.dropdown-trigger').dropdown();
     $('.modal').modal();
-    $('#message').val('');
-    M.textareaAutoResize($('#message'));
   });
