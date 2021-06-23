@@ -1,49 +1,73 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
 {% block content %}
 
-<h3 class="center-align">Login / Sign Up</h3>
-
-<div class="row">
-
-    <!-- Login Form -->
-
-    <form class="col m4 s12 offset-m2" method="POST" action="{{ url_for('login') }}">
-        <h2> Log In </h2>
-        <div class="card-panel">
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix brown-text"> people</i>
-                    <input id="username" name="username" type="text" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-                    <label for="username">Username</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix brown-text">lock_outline</i>
-                    <input id="password" name="password" type="password" minlength="5" maxlength="15"
-                        pattern="^[a-zA-Z0-9]{5,20}$" class="validate" required>
-                    <label for="password">Password</label>
-                </div>
-            </div>
-            <div class="row center-align">
-                <button class="btn brown lighten-1" type="submit" name="action">Login
-                </button>
-            </div>
-        </div>
-    </form>
-
-    <div class="row">
-        <div class="col m4 s12 offset-m2">
-            <h4> Not registerd yet? </h4>
-            <a href="{{ url_for('register') }}" class="btn brown lighten-1 ">Click Here</a>
-        </div>
+<section class="container center-align">
+  <div class="row">
+    <div class="col s12">
+      <h1>Sign In</h1>
+      <p>
+        Sign in to your account to update your recipes, or to share new recipes.
+      </p>
     </div>
+  </div>
 
+  <!-- Sign in form -->
+  <div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('login') }}">
+      <div class="card-panel">
+        <!-- Username -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix brown-text"> people</i>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              minlength="5"
+              maxlength="15"
+              pattern="^[a-zA-Z0-9]{5,15}$"
+              class="validate"
+              required
+            />
+            <label for="username">Username</label>
+          </div>
+        </div>
+        <!-- Password -->
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix brown-text">lock_outline</i>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              minlength="5"
+              maxlength="15"
+              pattern="^[a-zA-Z0-9]{5,15}$"
+              class="validate"
+              required
+            />
+            <label for="password">Password</label>
+          </div>
+        </div>
 
+        <!-- Register -->
+        <div class="row">
+          <button type="submit" class="col s12 btn-large brown lighten-1">
+            Sign In
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 
-</div>
-
-
+  <!-- New here? Sign up -->
+  <div class="row">
+    <div class="col s12">
+      <p class="center-align">
+        New here?<a href="{{ url_for('register') }}"> Sign up here</a>
+      </p>
+    </div>
+  </div>
+</section>
 
 {% endblock %}
