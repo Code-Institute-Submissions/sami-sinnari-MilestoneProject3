@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <h3 class="center-align"> Edit Your Recipe </h3>
+    <div class="row card-panel grey lighten-5">
+        <form class="col s12" method="POST" action="{{ url_for ('edit_recipe', recipe_id= recipe._id) }}">
+            <div class="row">
+                <!-- Recipe Name -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <input id="recipe_name" name="recipe_name" value="{{ recipe.recipe_name }}" type="text" pattern="^[^\s][A-Za-z0-9\s]{1,25}$"
+                            class="validate" required>
+                        <label for="recipe_name">Recipe name</label>
+                        <span class="helper-text" >We like it short and simple!</span>
+                    </div>
+                </div>
+                <!-- Category name -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <select id="category_name" name="category_name" class="validate" required>
+                            <option value="" disabled selected>Choose category</option>
+                            {% for category in categories %}
+                            <option value="{{ category.category_name}}">{{ category.category_name}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="category_name">Recipe category</label>
+                    </div>
+                </div>
+                <!-- Img URL -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <input id="img_url" name="img_url" type="url" pattern="https?://.+"  class="validate" 
+                        value="{{ recipe.img_url }}" required>
+                        <label for="img_url">Image url</label>
+                        <span class="helper-text" data-error="enter valid URL" data-success="right">If you have no url of image, keep the default one.</span>
+                    </div>
+                </div>
+                <!-- Preparation time  -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <input id="prep_time" name="prep_time" type="text" pattern="^[1-9][0-9]*$" 
+                        value="{{ recipe.prep_time }}" class="validate" required>
+                        <label for="prep_time">Preparation time (in minutes)</label>
+                        <span class="helper-text" data-error="enter a valid number" data-success="right">Example: 20</span>
+                    </div>
+                </div>
+                <!-- Recipe Ingredients  -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <textarea id="recipe_ingredients" name="recipe_ingredients" class="materialize-textarea validate"
+                            required>{{- recipe.recipe_ingredients -}}</textarea>
+                        <label for="recipe_ingredients">Ingredients</label>
+                        <span class="helper-text" data-error="It's not correct" data-success="right">Write every new ingredient on a new line.</span>
+                    </div>
+                </div>
+                <!--  Recipe Method  -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <textarea id="recipe_method" name="recipe_method" class="materialize-textarea validate"
+                            required>{{- recipe.recipe_method -}}</textarea>
+                        <label for="recipe_method">Instructions</label>
+                        <span class="helper-text" data-error="not correct" data-success="right">Please write every step onto a new
+                            line.</span>
+                    </div>
+                </div>
+
+                <!-- Vegetarian  -->
+                <div class="row">
+                    <div class="input-field col s11">
+                        <div class="switch">
+                            <label for="is_vegetarian">
+                                <input type="checkbox" id="is_vegetarian" name="is_vegetarian">
+                                <span class="lever"></span>
+                                Vegetarian
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <div class="row">
+                    <div class="col s6 center-align">
+                        <button type="submit" class="btn-small custom-btn waves-effect blue lighten-2">Edit
+                            recipe</button>
+                    </div>
+                    <div class="col s6 center-align">
+                        <a class="btn-small custom-btn waves-effect blue accent-2"
+                            href="{{ url_for('profile', username=session['user'])  }}">Cancel</a>
+                    </div>
+                </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

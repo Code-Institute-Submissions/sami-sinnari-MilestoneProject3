@@ -1,5 +1,6 @@
 import os
-from flask import Flask, flash, render_template, redirect, request, session, url_for
+from flask import Flask, flash, render_template, \
+      redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -16,10 +17,6 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 
 mongo = PyMongo(app)
-
-
-
-# Index and Route
 
 
 @app.route("/")
@@ -41,8 +38,8 @@ def recipe(recipe_id):
     mongo.db.recipes.update({'_id': ObjectId(recipe_id)}, {'$inc': {'views': int(1)}})
     return render_template("/recipe.html", recipe=recipe_db)
 
-# Sign Up
 
+# Sign Up
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
@@ -66,12 +63,13 @@ def register():
 
     return render_template("register.html")
 
-# Login
 
+# Login
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        existing_user = mongo.db.users.find_one({"username": request.form.get("username").lower()})
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
 
         if existing_user:
             if check_password_hash(
@@ -89,8 +87,8 @@ def login():
 
     return render_template("/login.html")
 
-# Logout 
 
+# Logout 
 @ app.route("/logout")
 def logout():
     flash("You have been logged out")
@@ -99,7 +97,6 @@ def logout():
 
 
 # User's Profile
-
 @ app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     username = mongo.db.users.find_one(
@@ -115,7 +112,6 @@ def profile(username):
 
 
 # Add Recipe
-
 @ app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if not session.get("user"):
@@ -143,8 +139,36 @@ def add_recipe():
         "add_recipe.html", categories=categories
         )
 
-# Delete recipe
 
+# Edit Recipe
+@ app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+def edit_recipe(recipe_id):
+
+    if not session.get("user"):
+        return render_template("error_handlers/404.html")
+
+    if request.method == "POST":
+        is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
+        submit = {
+            "recipe_name": request.form.get("recipe_name"),
+            "category_name": request.form.get("category_name"),
+            "img_url": request.form.get("img_url"),
+            "prep_time": request.form.get("prep_time"),
+            "recipe_ingredients": request.form.get("recipe_ingredients"),
+            "recipe_method": request.form.get("recipe_method"),
+            "is_vegetarian": is_vegetarian,
+            "added_by": session["user"]
+        }
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
+        flash("Recipe successfully edited")
+        return redirect(url_for("profile", username=session['user']))
+
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template("/edit_recipe.html", recipe=recipe,categories=categories)
+
+
+#Delete Recipe
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
@@ -153,21 +177,21 @@ def delete_recipe(recipe_id):
 
 # Comments
 
-@app.route('/comments', methods=['POST'])
-def comments():
-    if request.method == 'POST':
-        comment = {
-            'person_name': request.form.get('person_name'),
-            'user_comment': request.form.get('user_comment')
-        }
+# @app.route('/comments', methods=['POST'])
+# def comments():
+#     if request.method == 'POST':
+#         comment = {
+#             'person_name': request.form.get('person_name'),
+#             'user_comment': request.form.get('user_comment')
+#         }
 
-        mongo.db.comments.insert_one(comment)
-        flash('Comment posted successfully')
-        return redirect(url_for(""))
+#         mongo.db.comments.insert_one(comment)
+#         flash('Comment posted successfully')
+#         return redirect(url_for("get_recipes")
 
-    return render_template( "comment.html")
-    
-    #return redirect(url_for('comments', comments_id=request.form.get('comments_id')))
+#     return redirect(url_for('comments'))
+# #return redirect(url_for('comments', comments_id=request.form.get('comments_id')))
+
 # Main
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
