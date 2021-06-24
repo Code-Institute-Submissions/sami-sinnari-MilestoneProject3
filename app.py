@@ -192,6 +192,18 @@ def delete_recipe(recipe_id):
 #     return redirect(url_for('comments'))
 # #return redirect(url_for('comments', comments_id=request.form.get('comments_id')))
 
+#Search
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
+    if len(recipes) == 0:
+        flash(f"We're sorry but no recipes with {query} were found!")
+    else:
+        flash(f"Your search for {query} returned {len(recipes)} result(s)!")
+    return render_template("recipes.html", recipes=recipes)  
+
 # Main
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
