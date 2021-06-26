@@ -1,20 +1,28 @@
 
+body{
+  font-family: 'Raleway', sans-serif;
+}
+
 nav ul a,
 nav .brand-logo {
   color: #444;
 }
-
 
 p {
   line-height: 2rem;
 }
 
 .sidenav-trigger {
-  color: #26a69a;
+  color: #aa9891;
+}
+
+.white-text{
+  text-shadow: 2px 2px #a88d80;
+  padding-top: 1em;
 }
 
 .parallax{
-    background-image: url("/static/images/1.jpg");
+    background-image: url("/static/images/8.jpg");
     min-height: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -51,6 +59,10 @@ p {
     object-fit: cover;
 }
 
+.card-content h4{
+  line-height: 200%;
+}
+
  /* label focus color */
  .input-field input:focus + label {
   color: rgb(150, 102, 40) !important;
@@ -61,8 +73,33 @@ p {
   box-shadow: 0 1px 0 0 rgb(150, 102, 40) !important;
 }
 
+#recipe-by h3, h4{
+  font-size: 2em;
+}
 
-@media only screen and (min-width : 992px) {
+.flashes{
+  display: flex;
+  justify-content: center;
+}
+
+.social_links{
+  font-size: 3em;
+  line-height: 2em;
+}
+
+.fa-facebook:hover{
+  color: #0c46e7;
+}
+
+.fa-instagram:hover{
+  color: #e0472c;
+}
+
+.fa-twitter:hover{
+  color: #63a3f7;
+}
+
+@media only screen and (max-width : 992px) {
   .parallax-container .section {
     position: absolute;
     top: 40%;
@@ -72,13 +109,25 @@ p {
   }
 }
 
-@media only screen and (min-width : 600px) {
+@media only screen and (max-width: 768px) {
+
   #index-banner .section {
     top: 0;
   }
-}
 
-@media only screen and (max-width: 768px) {
+  .parallax{
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .parallax-container {
+    min-height: 480px;
+    line-height: 1;
+  }
+  
   .recipe_details {
     display: -webkit-box;
     display: -ms-flexbox;
