@@ -12,7 +12,14 @@
       
       <!-- Rectipe Details -->
       <div class="row recipe_details">
-
+        <div class="col s12 n4">
+          <h5>Try it at: {{ recipe.category_name}}</h5>
+          {% if recipe.is_vegetarian == "on" %}
+          <h5>Note: It's Vegetarian!</h5>
+          {% else %}
+          <h5>Note: It's not Vegetarian!</h5>
+          {% endif %}
+        </div>
         <div class="col l6 s12 recipe-image">
           <div class="card-panel">
             <img class="responsive-img" src="{{ recipe.img_url }}"
