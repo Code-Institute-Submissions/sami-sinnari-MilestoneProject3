@@ -19,7 +19,7 @@
                 <div class="row">
                     <div class="input-field col s11">
                         <select id="category_name" name="category_name" class="validate" required>
-                            <option value="" disabled selected>Choose category</option>
+                            <option value="" disabled>Choose category</option>
                             {% for category in categories %}
                             <option value="{{ category.category_name}}">{{ category.category_name}}</option>
                             {% endfor %}
@@ -70,8 +70,12 @@
                     <div class="input-field col s11">
                         <div class="switch">
                             <label for="is_vegetarian">
+                                {% if recipe.is_vegetarian == "on" %}
+                                <input type="checkbox" id="is_vegetarian" name="is_vegetarian" checked>
+                                {% else %}
                                 <input type="checkbox" id="is_vegetarian" name="is_vegetarian">
-                                <span class="lever"></span>
+                                {% endif %}
+                                <span class="lever"></span> 
                                 Vegetarian
                             </label>
                         </div>
@@ -81,7 +85,7 @@
                 <!-- Submit button -->
                 <div class="row">
                     <div class="col s6 center-align">
-                        <button type="submit" class="btn-small custom-btn waves-effect blue lighten-2">Edit
+                        <button type="submit" class="btn-small custom-btn waves-effect blue lighten-2">Update
                             recipe</button>
                     </div>
                     <div class="col s6 center-align">
