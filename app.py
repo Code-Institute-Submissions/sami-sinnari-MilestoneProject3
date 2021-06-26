@@ -144,8 +144,13 @@ def add_recipe():
 @ app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
 
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+
     if not session.get("user"):
         return render_template("error_handlers/404.html")
+    
+    if session.get("user") != recipe.get("added_by"):
+        return redirect(url_for("profile", username=session['user']))
 
     if request.method == "POST":
         is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
