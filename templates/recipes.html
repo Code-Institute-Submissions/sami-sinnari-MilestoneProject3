@@ -8,7 +8,6 @@
         <h2 class="align-center">Tasty Recipes!</h2>
     </div>
 
-
         <div class="row">
         <form action="{{ url_for('search')}}" method="post">
             <div class="wrap">
@@ -18,13 +17,24 @@
                         <label for="query"></label>
                     </div>
                     <div class="col s12 m12">
-                            <button type="submit" class=" brown lighten-2 btn-small text-shadow">search</button>
-                            <a href="{{ url_for('get_recipes') }}" class="black btn-small brown lighten-2 text-shadow">Reset</a>
+                            <button type="submit" class=" brown lighten-3 btn-small text-shadow">search</button>
+                            <a href="{{ url_for('get_recipes') }}" class="black btn-small brown lighten-3 text-shadow">Reset</a>
                     </div>
                 </div>
             </div>
         </form>
     </div> 
+
+    <!-- Category dropdown -->
+    <div class="row col s6">
+        <a class='dropdown-trigger brown lighten-3 btn-small text-shadow' href='#' data-target='dropdown1'>Categories</a>
+            <ul id='dropdown1' class='dropdown-content'>
+                <li><a href="{{ url_for('recipe_category', id='Breakfast') }}">Breakfast</a></li>
+                <li><a href="{{ url_for('recipe_category', id='Lunch') }}">Lunch</a></li>
+                <li><a href="{{ url_for('recipe_category', id='Dinner') }}">Dinner</a></li>
+                <li><a href="{{ url_for('recipe_category', id='Sweets') }}">Sweets</a></li>
+            </ul>
+        </div>
 
     <div class="row">
         {% for recipe in recipes %}

@@ -172,6 +172,11 @@ def edit_recipe(recipe_id):
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("/edit_recipe.html", recipe=recipe,categories=categories)
 
+# Recipe category
+@app.route("/recipe_category/<id>")
+def recipe_category(id):
+    recipes = list(mongo.db.recipes.find({"category_name": id}))
+    return render_template("/recipes.html", recipes=recipes)
 
 #Delete Recipe
 @app.route("/delete_recipe/<recipe_id>")
@@ -180,33 +185,16 @@ def delete_recipe(recipe_id):
     flash("Recipe has been Successfully Deleted")
     return redirect(url_for("profile", username=session['user']))
 
-# Comments
-
-# @app.route('/comments', methods=['POST'])
-# def comments():
-#     if request.method == 'POST':
-#         comment = {
-#             'person_name': request.form.get('person_name'),
-#             'user_comment': request.form.get('user_comment')
-#         }
-
-#         mongo.db.comments.insert_one(comment)
-#         flash('Comment posted successfully')
-#         return redirect(url_for("get_recipes")
-
-#     return redirect(url_for('comments'))
-# #return redirect(url_for('comments', comments_id=request.form.get('comments_id')))
 
 #Search
-
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     if len(recipes) == 0:
-        flash(f"We're sorry but no recipes with {query} were found!")
+        flash(f"Sorry, there are no recipes under name {query} :( ")
     else:
-        flash(f"Your search for {query} returned {len(recipes)} result(s)!")
+        flash(f"We found {len(recipes)} result(s) :)")
     return render_template("recipes.html", recipes=recipes)  
 
 # Main
