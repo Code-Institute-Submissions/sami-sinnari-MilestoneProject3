@@ -23,9 +23,9 @@
                                     <p>Preparation Time: {{ recipe.prep_time}} Minutes</p>
                             </div>
                             <div class="card-action"> 
-                                        <a class="btn waves-effect btn modal-trigger brown lighten-1" href="#modal1">
+                                        <a class="btn waves-effect btn modal-trigger brown lighten-1" href="#modal-{{loop.index}}">
                                             <i class="material-icons">delete</i></a>   
-                                        <div id="modal1" class="modal">
+                                        <div id="modal-{{loop.index}}" class="modal">
                                             <div class="modal-content">
                                             <h4>Delete for all eternity?</h4> <br>
                                             <p> You'll lose all information inserted. We can't recover them once you delete <br>
