@@ -1,7 +1,15 @@
 
+*{
+  padding: 0;
+  margin: 0;
+}
+
 body{
   font-family: 'Raleway', sans-serif;
 }
+
+
+/* Landing page */
 
 nav ul a,
 nav .brand-logo {
@@ -16,23 +24,31 @@ p {
   color: #aa9891;
 }
 
-.white-text{
-  text-shadow: 2px 2px #a88d80;
+.landing_text{
+  text-shadow: 5px 2px #a88d80;
   padding-top: 1em;
+  font-weight: 700;
+  font-size: 3.2em;
 }
 
-.parallax{
-    background-image: url("/static/images/8.jpg");
-    min-height: 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+.row .picture_text{
+  font-weight: 700;
+  text-shadow: 1px 2px #a88d80;
+  font-size: 2em;
 }
 
 .modal .modal-footer{
   display: flex;
   justify-content: center;
+}
+
+.parallax{
+  background-image: url("/static/images/8.jpg");
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 
 .parallax-container {
@@ -41,9 +57,13 @@ p {
   height: auto;
   color: rgba(255,255,255,.9);
 }
+
 .parallax-container .section {
     width: 100%;
 }
+
+
+/* Recipe images */
 
 .img_recipe{
   float: left;
@@ -63,24 +83,43 @@ p {
   line-height: 200%;
 }
 
- /* label focus color */
+
+ /* label underline colors */
+
  .input-field input:focus + label {
   color: rgb(150, 102, 40) !important;
 }
-/* label underline focus color */
+
 .input-field input:focus {
   border-bottom: 1px solid rgb(150, 102, 40) !important;
   box-shadow: 0 1px 0 0 rgb(150, 102, 40) !important;
 }
 
+
 #recipe-by h3, h4{
   font-size: 2em;
 }
+
+/* Flash messages */
 
 .flashes{
   display: flex;
   justify-content: center;
 }
+
+.flash_message{
+font-size: 1.3em;
+line-height: 110%;
+margin: 2.3733333333rem 0 1.424rem 0;
+border: 2px dashed #8d6e63;
+border-radius: 20%;
+border-width: 4px;
+padding: 20px;
+
+}
+
+
+/* Social links */
 
 .social_links{
   font-size: 3em;
@@ -99,53 +138,41 @@ p {
   color: #63a3f7;
 }
 
-@media only screen and (max-width : 992px) {
+.fa-utensils{
+  color: #a88d80;
+}
+
+
+/* Media queries */
+
+@media only screen and (min-width : 992px) {
   .parallax-container .section {
     position: absolute;
     top: 40%;
   }
-  #index-banner .section {
+  #-banner .section {
     top: 10%;
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) {
 
   #index-banner .section {
     top: 0;
-  }
-
-  .parallax{
-    min-height: 100%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
   }
 
   .parallax-container {
     min-height: 480px;
     line-height: 1;
   }
-  
-  .recipe_details {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .recipe-image {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
+
+  .white-text{
+    text-shadow: 5px 4px #a88d80;
+    font-size: 5em;
   }
 
-  .recipe-info-text {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
+  .social_links{
+    font-size: 3em;
+    line-height: 2em;
   }
 }
