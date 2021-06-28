@@ -1,5 +1,4 @@
-# Most of the code I implemented below has been thought by Code Institute. 
-
+# Most of the code I implemented below has been thought by Code Institute.
 import os
 from flask import Flask, flash, render_template, \
       redirect, request, session, url_for
@@ -27,7 +26,7 @@ def get_index():
     toprecipes = mongo.db.recipes.find()
     return render_template("index.html", recipes=toprecipes)
 
-    
+
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
@@ -38,7 +37,8 @@ def get_recipes():
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
-    mongo.db.recipes.update_one({'_id': ObjectId(recipe_id)}, {'$inc': {'views': int(1)}})
+    mongo.db.recipes.update_one(
+        {'_id': ObjectId(recipe_id)}, {'$inc': {'views': int(1)}})
     return render_template("/recipe.html", recipe=recipe_db)
 
 
@@ -71,15 +71,15 @@ def register():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        existing_user = mongo.db.users.find_one(
-            {"username": request.form.get("username").lower()})
+        existing_user = mongo.db.users.find_one({"username": request.form.get(
+            "username").lower()})
 
         if existing_user:
             if check_password_hash(
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
-                flash("Welcome, {}".format(request.form.get("username")))
-                return redirect( url_for("profile", username=session["user"]))
+                flash("Welcome,{}".format(request.form.get("username")))
+                return redirect(url_for("profile", username=session["user"]))
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
@@ -91,7 +91,7 @@ def login():
     return render_template("/login.html")
 
 
-# Logout 
+# Logout
 @ app.route("/logout")
 def logout():
     flash("You have been logged out")
@@ -118,7 +118,7 @@ def profile(username):
 @ app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
     if not session.get("user"):
-        render_template("templates/404.html")
+        render_template("templates/error404.html")
 
     if request.method == "POST":
         is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
@@ -150,8 +150,8 @@ def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
 
     if not session.get("user"):
-        return render_template("error_handlers/404.html")
-    
+        return render_template("templates/error404.html")
+
     if session.get("user") != recipe.get("added_by"):
         return redirect(url_for("profile", username=session['user']))
 
@@ -172,8 +172,10 @@ def edit_recipe(recipe_id):
         return redirect(url_for("profile", username=session['user']))
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("/edit_recipe.html", recipe=recipe,categories=categories)
+    categories = mongo.db.categories.find().sort(
+        "category_name", 1)
+    return render_template(
+        "/edit_recipe.html", recipe=recipe, categories=categories)
 
 
 # Recipe category
@@ -183,7 +185,7 @@ def recipe_category(id):
     return render_template("/recipes.html", recipes=recipes)
 
 
-#Delete Recipe
+# Delete Recipe
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
@@ -191,7 +193,7 @@ def delete_recipe(recipe_id):
     return redirect(url_for("profile", username=session['user']))
 
 
-#Search
+# Search
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
@@ -200,11 +202,12 @@ def search():
         flash(f"Sorry, there are no recipes under name {query} :( ")
     else:
         flash(f"We found {len(recipes)} result(s) :)")
-    return render_template("recipes.html", recipes=recipes)  
+    return render_template("recipes.html", recipes=recipes)
 
 
-#Errors
-# Code below for errors has been thought here : https://flask.palletsprojects.com/en/1.1.x/errorhandling/
+# Errors
+# Code below for errors has been thought here :
+# https://flask.palletsprojects.com/en/1.1.x/errorhandling/
 
 @app.errorhandler(403)
 def forbidden(e):
