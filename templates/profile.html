@@ -6,7 +6,7 @@
     <div class="col s12">
         <div class="card-panel">
             <h3 class="username">
-               {{ username }}s Recipes 
+               {{ username }}'s recipes  <i class="fas fa-utensils"></i>
             </h3>
         </div>
         <div class="row">
@@ -20,7 +20,7 @@
                             </div>
                             <div class="card-content">
                                 <h4>{{ recipe.recipe_name }}</h4>
-                                    <p>Preparation Time: {{ recipe.prep_time}} Minutes</p>
+                                    <p>Cooking time: {{ recipe.cooks_in}} Minutes</p>
                             </div>
                             <div class="card-action"> 
                                         <a class="btn waves-effect btn modal-trigger brown lighten-1" href="#modal-{{loop.index}}">

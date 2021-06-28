@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+    integrity="sha512-xA6Hp6oezhjd6LiLZynuukm80f8BoZ3OpcEYaqKoCV3HKQDrYjDE1Gu8ocxgxoXmwmSzM4iqPvCsOkQNiu41GA==" crossorigin="anonymous" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,300&display=swap" rel="stylesheet"> 
@@ -16,7 +18,7 @@
 
     <header>
 
-        <!------- Nav bar-------->
+        <!------- Navbar-------->
 
         <nav class="white" role="navigation">
             <div class="nav-wrapper container">
@@ -25,39 +27,40 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_index') }}">Home</a></li>
                     <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
-                    {% if session.user %}
-                    <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-                    <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
-                    <li><a href="{{ url_for('logout') }}">Logout</a></li>
+                    {% if session.user %} 
+                        <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                        <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
+                        <li><a href="{{ url_for('logout') }}">Logout</a></li>
                     {% else %}
-                    <li><a href="{{ url_for('login') }}">Sign In / Sign Up</a></li>
+                        <li><a href="{{ url_for('login') }}">Sign In / Sign Up</a></li>
                     {% endif %}
                 </ul>
             </div>
         </nav>
 
-        <!------- Mobile side nav -------->
+        <!------- Mobile navbar -------->
 
         <ul class="sidenav" id="mobile-demo">
             <li><a href="{{ url_for('get_index') }}">Home</a></li>
             <li><a href="{{ url_for('get_recipes') }}">Recipes</a></li>
-            {% if session.user %}
-            <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
-            <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
-            <li><a href="{{ url_for('logout') }}">Logout</a></li>
+             {% if session.user %} 
+                <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
+                <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
+                <li><a href="{{ url_for('logout') }}">Logout</a></li>
             {% else %}
-            <li><a href="{{ url_for('login') }}">Login / Sign Up</a></li>
+                <li><a href="{{ url_for('login') }}">Sign In / Sign Up</a></li>
             {% endif %}
         </ul>
 
 
     </header>
 
+    <!-- display flash messages -->
     {% with messages = get_flashed_messages() %}
         {% if messages %}
             <ul class=flashes>
                 {% for message in messages %}
-                <li>{{ message }}</li>
+                <li><p class="flash_message">{{ message }}</p></li>
                 {% endfor %}
             </ul>
         {% endif %}
@@ -72,7 +75,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/query.js') }}"></script>
     <script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=60d394f80081ca001247816e&product=inline-share-buttons" async="async"></script>
     {% block scripts %}
     {% endblock %}

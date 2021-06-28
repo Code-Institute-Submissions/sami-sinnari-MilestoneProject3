@@ -36,13 +36,13 @@
                         <span class="helper-text" data-error="enter valid URL" data-success="right">If you have no url of image, keep the default one.</span>
                     </div>
                 </div>
-                <!-- Preparation time  -->
+                <!-- Cooking time  -->
                 <div class="row">
                     <div class="input-field col s11">
-                        <input id="prep_time" name="prep_time" type="text" pattern="^[1-9][0-9]*$" 
-                        value="{{ recipe.prep_time }}" class="validate" required>
-                        <label for="prep_time">Preparation time (in minutes)</label>
-                        <span class="helper-text" data-error="enter a valid number" data-success="right">Example: 20</span>
+                        <input id="cooks_in" name="cooks_in" type="text" pattern="^[1-9][0-9]*$" 
+                        value="{{ recipe.cooks_in }}" class="validate" required>
+                        <label for="cooks_in">Cooks in ... (in minutes)</label>
+                        <span class="helper-text" data-error="enter a valid number" data-success="right">Example: 95</span>
                     </div>
                 </div>
                 <!-- Recipe Ingredients  -->
