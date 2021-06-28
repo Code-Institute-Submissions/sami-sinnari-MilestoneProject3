@@ -5,11 +5,15 @@
     <section class="container center-align">
         <div class="row">
           <div class="col s12">
-            <h1>"{{ recipe.recipe_name }}"</h1>
+            <h4 class="recipe_header">"{{ recipe.recipe_name }}"</h4>
           </div>
         </div>
       </section>
-      
+
+    <a href="{{ url_for('get_recipes') }}">
+      <i class="fas fa-arrow-left"> Back to recipes </i>
+    </a>
+
       <!-- Rectipe Details -->
       <div class="row recipe_details">
         <div class="col s12 n4">
