@@ -1,59 +1,168 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Milestone 3 Project - SpiceInn
 
-Welcome USER_NAME,
+  SpiceInn is a company restorount owned by family friend. The target audience of the website are home cooks, amateur cooks and not necessarily professional cooks, although anyone is welcome.
+  
+  Recipes will be visible to non-registered users, but users must register to be able to post and edit their own recipes.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+ ![Am-I-Responsive](/static/images/am-i-responsive.jpg)  
 
-## Gitpod Reminders
+## Contents
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+- [**User Experience (UX)**](<#user-experience-(ux)>)
 
-`python3 -m http.server`
+  - [Project Goals](#project-goals)
+  - [User Goals](#user-goals)
+  - [Design](#design)
+  - [Wireframes](#wireframes)
 
-A blue button should appear to click: _Make Public_,
+- [**Features**](#features)
 
-Another blue button should appear to click: _Open Browser_.
+  - [Existing Features](#features)
+  - [Features Left to Implement](#features)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+- [**Technologies**](#technologies-used)
 
-A blue button should appear to click: _Make Public_,
+  - [Languages Used](#technologies-used)
+  - [Frameworks, Libraries and Programs Used](#technologies-used)
 
-Another blue button should appear to click: _Open Browser_.
+- [**Testing**](#testing)
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- [**Deployment**](#deployment)
 
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidently make it public then you can create a new one with _Regenerate API Key_.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- [**Credits**](#credits)
 
 ---
 
-Happy coding!
+
+## User Experience (UX)
+
+### Project Goals
+
+- Create a website where users can get inspired and where they can share their favorite recipes
+- Create a navigation throughout the site and place where users can register and login in order to manage their posts.
+- Implement a use of CRUD (create, read, update and delete) functionalities for users recipes.
+- Implemet following technologies : HTML, CSS, JavaScript, Plython, Flask and MongoDB
+
+## User Stories
+
+### New User Goals:
+* As a user, I want to be able to view recipes to cook
+* As a user, I want to be able to register for the website and post my own recipes
+* As a user, I want to be able to share my own recipes to the website and with the community in an easy way
+* As a user, I want to be able to find new recipes.
+* As a user, I want to be able to edit/update my posted recipes
+* As a user, I want to be able to delete my posted recipes
+
+### Returning User Goals:
+* As a returning user, I want to be able to edit/update my posted recipes
+* As a returning user, I want to be able to delete my posted recipes
+
+### Site Owner User Goals:
+* As the site owner, I want to share the recipes added on this website
+* As the site owner, I want to drive traffic from this site to the restoraunts site to increase the orders.
+
+
+### Design
+- The design of this project is based on simplicity. Mostly, Materialize was used as their templates bring attractive and nicely-set look. Scroll-over background image has been used which gives an accurate meaning to the page on first glance.
+
+#### Colors
+
+- I've used four colors throughout the site.
+
+![Color Scheme Generated by coolors.co](static/images/palette.png)
+
+#### Typography
+
+- I used only one font for this website. The name of the font is : Raleway, and it was taken from Google Fonts. I decided to use Raleway as it presents more modern look. It is clear to read and pairs nicely.
+
+
+### Wireframes
+
+- Please find all of my wireframes [here](https://github.com/sami-sinnari/MilestoneProject3/tree/master/static/wireframes)
+
+
+#### [Back to Contents](#contents)
+
+---
+
+## Features
+
+### Existing Features : 
+
+### Features Left to Implement when sufficient knowledge is gained :
+
+
+
+#### [Back to Contents](#contents)
+
+---
+
+## Technologies Used
+
+### Languages
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619744963/html5_rjkhoe.png) [HTML5](https://en.wikipedia.org/wiki/HTML5)
+>
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619744731/css_mvqiie.png) [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+>
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619744731/js_fveoqo.png) [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+### Frameworks, Libraries and Programs:
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/font_awesome_logo_djde4p.png) [Font Awesome](https://fontawesome.com/) - Font awesome was used in order to add icons to social links and whole of the cart.
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/Google-Fonts-Logo_p07ouz.png)[Google Fonts](https://fonts.google.com/) - Google fonts were used to add font to the website.
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/vs_code_i7thzg.png) [VSCode](https://code.visualstudio.com/) - VS Code was used to code the project alongside GitPod. 
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/balsamiq_wireframes_logo_eieeug.png) [Balsamiq](https://balsamiq.com/) - Balsamiq was used to create the wireframes for desktop, mobile and tablet view.
+
+#### [Back to Contents](#contents)
+
+---
+
+## Testing
+
+### Code validity
+
+### Testing User Stories from UX Section
+
+
+### Further Testing
+
+
+#### [Back to Contents](#contents)
+
+ ---
+
+## Deployment
+
+```
+
+```
+
+7. Press Enter to create a local clone.
+
+#### [Back to Contents](#contents)
+
+---
+
+## Credits
+### Pictures
+
+### Code
+
+
+### Content
+
+
+### Acknowledgements
+
+
+#### [Back to Contents](#contents)
+
+---
+
+This site was built for educational purposes only. If you find any content not mentioned in **Credits** that violates the copyrights, please contact me on samisinnari@gmail.com
+
+---
