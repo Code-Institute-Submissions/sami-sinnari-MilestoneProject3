@@ -20,6 +20,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 # Routing
 @app.route("/")
 def get_index():
@@ -174,11 +175,13 @@ def edit_recipe(recipe_id):
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("/edit_recipe.html", recipe=recipe,categories=categories)
 
+
 # Recipe category
 @app.route("/recipe_category/<id>")
 def recipe_category(id):
     recipes = list(mongo.db.recipes.find({"category_name": id}))
     return render_template("/recipes.html", recipes=recipes)
+
 
 #Delete Recipe
 @app.route("/delete_recipe/<recipe_id>")
@@ -198,6 +201,25 @@ def search():
     else:
         flash(f"We found {len(recipes)} result(s) :)")
     return render_template("recipes.html", recipes=recipes)  
+
+
+#Errors
+# Code below for errors has been thought here : https://flask.palletsprojects.com/en/1.1.x/errorhandling/
+
+@app.errorhandler(403)
+def forbidden(e):
+    return render_template("/error403.html"), 403
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("/error404.html"), 404
+
+
+@app.errorhandler(500)
+def server_error(e):
+    return render_template("/error500.html"), 500
+
 
 # Main
 if __name__ == "__main__":

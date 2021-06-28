@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h2 class="center-align">Error 500 </h2>
+            <h4 class="center-align">Sorry, application failed!</h5>
+            <h4 class="center-align"><a href="{{ url_for('get_index') }}" class="black-cta">Click here to go back!</a></h5>
+        </div>       
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %}
