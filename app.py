@@ -1,3 +1,5 @@
+# Most of the code I implemented below has been thought by Code Institute. 
+
 import os
 from flask import Flask, flash, render_template, \
       redirect, request, session, url_for
@@ -18,7 +20,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
-
+# Routing
 @app.route("/")
 def get_index():
     toprecipes = mongo.db.recipes.find()
@@ -35,7 +37,7 @@ def get_recipes():
 @app.route("/recipe/<recipe_id>")
 def recipe(recipe_id):
     recipe_db = mongo.db.recipes.find_one_or_404({'_id': ObjectId(recipe_id)})
-    mongo.db.recipes.update({'_id': ObjectId(recipe_id)}, {'$inc': {'views': int(1)}})
+    mongo.db.recipes.update_one({'_id': ObjectId(recipe_id)}, {'$inc': {'views': int(1)}})
     return render_template("/recipe.html", recipe=recipe_db)
 
 
@@ -123,7 +125,7 @@ def add_recipe():
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
             "img_url": request.form.get("img_url"),
-            "prep_time": request.form.get("prep_time"),
+            "cooks_in": request.form.get("cooks_in"),
             "recipe_ingredients": request.form.get("recipe_ingredients"),
             "recipe_method": request.form.get("recipe_method"),
             "is_vegetarian": is_vegetarian,
@@ -158,7 +160,7 @@ def edit_recipe(recipe_id):
             "recipe_name": request.form.get("recipe_name"),
             "category_name": request.form.get("category_name"),
             "img_url": request.form.get("img_url"),
-            "prep_time": request.form.get("prep_time"),
+            "cooks_in": request.form.get("cooks_in"),
             "recipe_ingredients": request.form.get("recipe_ingredients"),
             "recipe_method": request.form.get("recipe_method"),
             "is_vegetarian": is_vegetarian,
@@ -181,7 +183,7 @@ def recipe_category(id):
 #Delete Recipe
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    mongo.db.recipes.delete_one({"_id": ObjectId(recipe_id)})
     flash("Recipe has been Successfully Deleted")
     return redirect(url_for("profile", username=session['user']))
 
