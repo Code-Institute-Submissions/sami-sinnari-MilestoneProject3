@@ -48,7 +48,7 @@
 ### New User Goals:
 * As a user, I want to be able to view recipes to cook
 * As a user, I want to be able to register for the website and post my own recipes
-* As a user, I want to be able to share my own recipes to the website and with the community in an easy way
+* As a user, I want to be able to share my own recipes with the community in an easy way.
 * As a user, I want to be able to find new recipes.
 * As a user, I want to be able to edit/update my posted recipes
 * As a user, I want to be able to delete my posted recipes
@@ -59,7 +59,7 @@
 
 ### Site Owner User Goals:
 * As the site owner, I want to share the recipes added on this website
-* As the site owner, I want to drive traffic from this site to the restoraunts site to increase the orders.
+* As the site owner, I want to attract the audience with tempting a nice design.
 
 
 ### Design
@@ -78,8 +78,12 @@
 
 ### Wireframes
 
-- Please find all of my wireframes [here](https://github.com/sami-sinnari/MilestoneProject3/tree/master/static/wireframes)
+- Please find all of my wireframes [here](https://github.com/sami-sinnari/MilestoneProject3/blob/master/static/wireframes/spice-inn-wireframes.pdf)
 
+- The wireframes for landing page on desktop, mobile and tablet are below : 
+
+<img src="static/wireframes/spiceinn-mobile-landingpage.png" width=50% height=50%>
+<img src="static/wireframes/spiceinn-desktop-landingpage.png" width=50% height=50%>
 
 #### [Back to Contents](#contents)
 
@@ -89,7 +93,89 @@
 
 ### Existing Features : 
 
-### Features Left to Implement when sufficient knowledge is gained :
+- **Navigation**: 
+
+  Standard Materialize based navigation bar was added with clear name of the company on the left in desktop view and centered in mobile view
+
+- **Footer**: 
+
+  Template footer has been used to include "What We Are" info and Social links of the restoraunt.
+
+- **Home Page**: 
+
+  Template landing page has been used and modified to fit developers design. The banner will welcome user with button that will leade to the recipes section. Included are information relevant to the website and quotes to spread positivity about recipes.
+
+- **Profile**:
+
+  Once logged in, user will be transferred onto the profile page. Here is where they will be able to modifiy their posts. The options given to them are : Edit and Delete
+
+- **Flash messages**
+
+  Customized flash messages will appear for successful and non-successful registration, successful sign in and out, successfully updated and added recipes.
+
+- **Add / Edit recipe** :
+
+  Once logged in, users have the option to Add or Edit the recipe. If the navbar, they will see the option "Add Recipe". Once clicked, they will fill the relevant information in the form, and by clicking " Add Recipe", the recipe will be posted to all of the community.
+
+- **Delete**:
+
+  If user's wants to delete a recipe, they will have to login first. I have added *defensive programming* by using a pop-up modal, which will ask them if they want to proceed with removal of the recipe.
+
+- **Sign In / Sign Up**:
+
+  The benefit of Signing Up, is the availablity of adding and customizing recipes. If a person is not registered, they have the option to Sign Up. Once they Sign Up, they wil be redirected to their own profile where they will be greeted with message in border : "Welcome, User "
+
+- **Logout**:
+
+  If user clicks "Logout", they will be redirected to the page of "Sign In", as they might needs to Sign In again.
+
+- **Search**:
+
+  As the site will grow there will be more recipes, therefore I have added a search functionality where users will be able to search by entering a name of the recipe.
+
+**Database skeleton**
+
+- The skeleton of my database is as follows : 
+
+
+<img src="static/images/database-picture.png" width=50% height=100%>
+
+- **categories** : 
+
+    category_name
+
+- **recipes** : 
+
+    recipe_name
+
+    category_name
+
+    img_url
+
+    cooks_ini
+
+    recipe_ingredients
+
+    recipe_method
+
+    is_vegetarian
+
+    added_by
+
+    views ( views has been added in code for future plan, which will be mentioned in the *features left to be implemented*)
+
+- **users** :
+
+    username
+
+    password
+    
+**Security**
+
+- The website uses [Werkzeug's](https://werkzeug.palletsprojects.com/en/1.0.x/) password protection system. Werkzeug hashes the password entered by the user, converts the password into another string and then it is salted (additional data added). This makes the password very tough to crack. 
+
+
+### Features Left to Implement :
 
 
 
@@ -107,15 +193,23 @@
 >
 ![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619744731/js_fveoqo.png) [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/pictures/logos/python_mbbj4o.png) [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
 ### Frameworks, Libraries and Programs:
 
-![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/font_awesome_logo_djde4p.png) [Font Awesome](https://fontawesome.com/) - Font awesome was used in order to add icons to social links and whole of the cart.
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60,h_50/v1624909475/pictures/logos/Flask_h8fuus.png) [Flask](https://fontawesome.com/)
 
-![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/Google-Fonts-Logo_p07ouz.png)[Google Fonts](https://fonts.google.com/) - Google fonts were used to add font to the website.
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60,h_60/v1624909475/pictures/logos/MongoDB_lintsi.png) [MongoDB](https://www.mongodb.com/) 
 
-![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/vs_code_i7thzg.png) [VSCode](https://code.visualstudio.com/) - VS Code was used to code the project alongside GitPod. 
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60,h_50/v1624909475/pictures/logos/gitpod_kbbawd.png) [Gitpod](https://www.gitpod.io/) 
 
-![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/balsamiq_wireframes_logo_eieeug.png) [Balsamiq](https://balsamiq.com/) - Balsamiq was used to create the wireframes for desktop, mobile and tablet view.
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60,h_50/v1624909475/pictures/logos/Materialize_uzrnyu.png) [Materialize](https://materializecss.com/about.html) 
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/font_awesome_logo_djde4p.png) [Font Awesome](https://fontawesome.com/) 
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/Google-Fonts-Logo_p07ouz.png)[Google Fonts](https://fonts.google.com/) 
+
+![Image](https://res.cloudinary.com/docyuifc9/image/upload/c_scale,w_60/v1619745480/pictures/logos/balsamiq_wireframes_logo_eieeug.png) [Balsamiq](https://balsamiq.com/) 
 
 #### [Back to Contents](#contents)
 
@@ -125,8 +219,37 @@
 
 ### Code validity
 
-### Testing User Stories from UX Section
+**PEP8 Compliant:**
 
+   I have used [PEP8](http://pep8online.com/) to check my app.py files complied with the PEP8 requirements. The results were 6 errors, all of them in regards to indentation and whitelines.
+
+  Second test has passed with no errors
+
+**W3C CSS Validator**
+I have used the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to check the validity of my CSS code.
+ Test was passed with **no** errors
+
+**W3C HTML Validator**
+I have used the [W3C HTML Validator](https://validator.w3.org) to check the validity of my HTML code on all pages.
+  Test was passed with **no** errors
+
+**JSHINT**
+I have used  [JSHINT](https://jshint.com/) to check validity of my JS code - No big/concerning errors.
+
+### Testing User Stories 
+
+* As a user, I want to be able to view recipes to cook
+**Created a special website link "Recipes" dedicated to all different recipes upload by other user's and site owner**
+* As a user, I want to be able to register for the website and post my own recipes
+**Created a link which will leade to "Sign Up" page where new users can register. Once registered, they will be able to post their own recipes**
+* As a user, I want to be able to share my own recipes with the community in an easy way.
+**Created a share buttons under each recipe added on the website. User's are able to noticve them easily**
+* As a user, I want to be able to find new recipes.
+**Created a page where all of the recipes are added once posted. User's are able to browse them wheter registered or not**
+* As a user, I want to be able to edit/update my posted recipes
+**Added customization options on each recipe profile of each registered user, where they can either edit/update their recipes**
+* As a user, I want to be able to delete my posted recipes
+**Added removal options on each recipe profile of registered user, where they can delete their recipes**
 
 ### Further Testing
 
