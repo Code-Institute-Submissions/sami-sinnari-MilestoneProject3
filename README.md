@@ -287,7 +287,7 @@
 
 - Edit issue 
 
-    I have faced an error where other users were able to edit any recipe if they pasted the edit link in their own profile. I have fixed that by adding proper code within edit_recipe file. The code I added was :
+    I have faced an error where other users were able to edit any recipe if they pasted the edit link in their own profile. I have fixed that by adding proper code within edit_recipe. The code I added was :
 
       if session.get("user") != recipe.get("added_by"):
 
