@@ -1,14 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!--  The code below has been inspired and retrived by Materialize Starter Templates. 
+      Please find link below : 
+      https://materializecss.com/templates/parallax-template/preview.html -->
 
 <div id="index-banner" class="parallax-container">
     <div class="section no-pad-bot">
       <div class="container ">
         <br><br>
-        <h1 class="header center white-text text-lighten-2">Share some secret recipes!</h1>
+        <h1 class="header center white-text landing_text text-lighten-2">
+          A food place with fresh, zesty recipes</h1>
         <div class="row center">
-          <a href="{{ url_for('get_recipes') }}" id="download-button" class="btn-large waves-effect waves-light brown-text text-darken-4 grey lighten-2 ">Find some recipes!</a>
+            <a href="{{ url_for('get_recipes') }}" 
+            id="download-button" 
+            class="btn-large waves-effect waves-light brown-text text-darken-4 grey lighten-2 ">
+            Browse some recipes!</a>
         </div>
         <br><br>
 
@@ -21,36 +28,15 @@
   <div class="container">
     <div class="section">
 
-      <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">test text</i></h2>
-            <h5 class="center">Something about recipes</h5>
-            <p class="light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat culpa debitis iure
-                accusantium minus ipsam maiores, veritatis qui labore architecto doloremque soluta itaque consectetur,
-                deleniti, sequi illum odit eaque aliquam.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">test text</i></h2>
-            <h5 class="center">Something about recipes</h5>
-            <p class="light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat culpa debitis iure
-                accusantium minus ipsam maiores, veritatis qui labore architecto doloremque soluta itaque consectetur,
-                deleniti, sequi illum odit eaque aliquam.</p>
-          </div>
-        </div>
-
-        <div class="col s12 m4">
-          <div class="icon-block">
-            <h2 class="center brown-text"><i class="material-icons">test text</i></h2>
-            <h5 class="center">Something about recipes</h5>
-            <p class="light">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat culpa debitis iure
-                accusantium minus ipsam maiores, veritatis qui labore architecto doloremque soluta itaque consectetur,
-                deleniti, sequi illum odit eaque aliquam.</p>
-        </div>
+        <div class="col s12 center">
+          <i class="mdi-content-send brown-text"></i>
+          <h4>Hi there!</h4> <br>
+          <p class="center light">Do you consider yourself a foodie? <br> 
+            If the answer is YES, then you have come to the right spot. We love
+            to share our pasion with other foodies out there! <br> For that reason we've created this page 
+            so you can discover new recipes, share your own and have all of your favorites in one place.</p>
+          <h5>Enyoj!</h5> <br>
         </div>
       </div>
 
@@ -62,7 +48,8 @@
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 white-text lighten-1">This is a text that will hover over the image text text text</h5>
+          <h5 class="header col s12 white-text lighten-1 picture_text">A recipe has no soul. 
+            You, as the cook, must bring soul to the recipe. <br> <br> ~ Thomas Keller</h5>
         </div>
       </div>
     </div>
@@ -70,24 +57,57 @@
   </div>
 
   <div class="container">
+
     <div class="section">
 
+      <!--   Icon Section   -->
       <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send brown-text"></i></h3>
-          <h4>Order From Us!</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
+        <div class="col s12 m4">
+          <div class="center icon-block">
+            <i class="fas fa-search"></i>
+            <h5 class="card_title_text">FIND</h5>
+            <p class="light">Are you thinking of what to cook today? Find something tasty to indulge in. 
+              Take a look at various recipies made by our master chefs or tested recipes 
+              from our foddies worldwide. Whatever it is that your craving right now, you'll find 
+              something delicious here.
+            </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="center icon-block">
+            <i class="fas fa-share"></i>
+            <h5 class="card_title_text">SHARE</h5>
+            <p class="light">You've fallen in love with a recipe? Make sure to share it with your friends and family.
+              Whether it's something delicious that caught your eye at our recipes section, or your own creation,
+              just click the share button under each recipe!
+               </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="center icon-block">
+            <i class="fas fa-plus"></i>
+            <h5 class="card_title_text">UPLOAD</h5>
+            <p class="light">Want to make a collection of your favorite recipes or show them to the world? You can have
+              both in one place! <a href="{{ url_for('register') }}" style="font-size: 1.2em; text-decoration: none;">Sign Up</a> 
+              for free and create your own cookbook with all of your favorite recipes.
+            </p>
+          </div>
         </div>
       </div>
 
     </div>
   </div>
 
+
   <div class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
       <div class="container">
         <div class="row center">
-          <h5 class="header col s12 white-text lighten-1"> This is a text that will hover over the image text text text</h5>
+          <h5 class="header col s12 white-text lighten-1 picture_text"> 
+            Growth springs from better recipes, not just from more cooking. <br> <br> ~ Paul Romer
+          </h5>
         </div>
       </div>
     </div>
