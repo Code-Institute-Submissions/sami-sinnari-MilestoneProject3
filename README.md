@@ -1,6 +1,6 @@
 # Milestone 3 Project - SpiceInn
 
-  SpiceInn is a company restorount owned by family friend. The target audience of the website are home cooks, amateur cooks and not necessarily professional cooks, although anyone is welcome.
+  SpiceInn is a company restaurant owned by family friend. The target audience of the website are home cooks, amateur cooks and not necessarily professional cooks, although anyone is welcome.
   
   Recipes will be visible to non-registered users, but users must register to be able to post and edit their own recipes.
 
@@ -179,7 +179,7 @@
 
 ### Features Left to Implement :
 
-
+- I have added **view** code into app file to receive the amount of vews per recipe on MongoDB databse. This has been added as future plan is once the website will be fully developed, the home page will consist of a section where we will post the most viewed recipes of the month.
 
 #### [Back to Contents](#contents)
 
@@ -228,15 +228,22 @@
   Second test has passed with no errors
 
 **W3C CSS Validator**
-I have used the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to check the validity of my CSS code.
+
+  I have used the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to check the validity of my CSS code.
  Test was passed with **no** errors
 
 **W3C HTML Validator**
-I have used the [W3C HTML Validator](https://validator.w3.org) to check the validity of my HTML code on all pages.
-  Test was passed with **no** errors
+
+  I have used the [W3C HTML Validator](https://validator.w3.org) to check the validity of my HTML code on all pages.
+  Test was passed with **no** errors, except Flask errors.
 
 **JSHINT**
-I have used  [JSHINT](https://jshint.com/) to check validity of my JS code - No big/concerning errors.
+
+  I have used  [JSHINT](https://jshint.com/) to check validity of my JS code - No big/concerning errors.
+
+**HTML TAGS CHECK**
+
+  I have used [Aliciaramires](https://www.aliciaramirez.com/closing-tags-checker/) to check if there are any open HTML tags.
 
 ### Testing User Stories 
 
@@ -277,6 +284,12 @@ I have used  [JSHINT](https://jshint.com/) to check validity of my JS code - No 
 - Removing issue - *ID error*
 
     Whenever a user would decide to delete a recipe, it would delete first recipe always. Noticed the issue is within the _id's, as always first _id was targeted. Added index.loop to asssing different _id to modals and now the user will delete recipe it want's to delete.
+
+- Edit issue 
+
+    I have faced an error where other users were able to edit any recipe if they pasted the edit link in their own profile. I have fixed that by adding proper code within edit_recipe file. The code I added was :
+
+      if session.get("user") != recipe.get("added_by"):
 
 #### [Back to Contents](#contents)
 
