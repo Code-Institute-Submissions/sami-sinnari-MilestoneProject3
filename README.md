@@ -4,11 +4,6 @@
   
   Recipes will be visible to non-registered users, but users must register to be able to post and edit their own recipes.
   
-  Feel free to use dummy account with few recipes added to the profile.
-  
-  **Username** : LukeCooking
-  **Password** : LukeCooking
-
   Deployed website can be viewed [here](https://milestone-project-3-sami.herokuapp.com/)
 
  ![Am-I-Responsive](static/images/am-i-responsive.jpg)  
