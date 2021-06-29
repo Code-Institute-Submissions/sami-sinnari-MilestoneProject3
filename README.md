@@ -3,7 +3,7 @@
   SpiceInn is a company restaurant owned by family friend. The target audience of the website are home cooks, amateur cooks and not necessarily professional cooks, although anyone is welcome.
   
   Recipes will be visible to non-registered users, but users must register to be able to post and edit their own recipes.
-
+  
   Deployed website can be viewed [here](https://milestone-project-3-sami.herokuapp.com/)
 
  ![Am-I-Responsive](static/images/am-i-responsive.jpg)  
@@ -287,7 +287,7 @@
 
 - Edit issue 
 
-    I have faced an error where other users were able to edit any recipe if they pasted the edit link in their own profile. I have fixed that by adding proper code within edit_recipe file. The code I added was :
+    I have faced an error where other users were able to edit any recipe if they pasted the edit link in their own profile. I have fixed that by adding proper code within edit_recipe. The code I added was :
 
       if session.get("user") != recipe.get("added_by"):
 
