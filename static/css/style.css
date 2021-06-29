@@ -12,6 +12,7 @@ body{
 /* Landing page */
 
 nav ul a,
+a,
 nav .brand-logo {
   color: #444;
 }
@@ -60,6 +61,12 @@ p {
 
 .parallax-container .section {
     width: 100%;
+}
+
+.icon-block i{
+  color: #a88d80;
+  font-size: 1.5em;
+  padding-top: 2.2em;
 }
 
 
@@ -153,6 +160,15 @@ padding: 20px;
   #-banner .section {
     top: 10%;
   }
+
+  .social_links{
+    font-size: 1em;
+    line-height: 1em;
+  }
+
+  .recipe_header{
+    font-size: 4em;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -168,11 +184,15 @@ padding: 20px;
 
   .white-text{
     text-shadow: 5px 4px #a88d80;
-    font-size: 5em;
+    font-size: 4em;
+  }
+
+  .recipe_header{
+    font-size: 3.5em;
   }
 
   .social_links{
-    font-size: 3em;
-    line-height: 2em;
+    font-size: 0.7em;
+    line-height: 6em;
   }
 }
